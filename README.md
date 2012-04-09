@@ -15,7 +15,8 @@ Installation
 ------------
 
 1. [Install Multicorn](http://multicorn.org/#installation)
-2. Build the FDW module:
+2. [Install ls-thrift-py-hadoop](https://github.com/lovelysystems/ls-thrift-py-hadoop)
+3. Build the FDW module:
 
         $ cd hive-fdw-for-postgresql
         $ python setup.py sdist
@@ -26,7 +27,7 @@ Installation
         $ cd hive-fdw-for-postgresql
         $ sudo easy_install .
 
-3. In the PostgreSQL client, create an extension and foreign server:
+4. In the PostgreSQL client, create an extension and foreign server:
 
 
         CREATE EXTENSION multicorn;
