@@ -51,7 +51,7 @@ Installation
 
         SELECT * FROM hive;
 
-6. Also user can execute selects using a Hive query:
+6. Also user can executes selects using a Hive query:
          
         CREATE FOREIGN TABLE hive_query (
             x varchar,
