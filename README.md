@@ -29,13 +29,14 @@ Installation
 
 4. In the PostgreSQL client, create an extension and foreign server:
 
-
         CREATE EXTENSION multicorn;
         
         CREATE SERVER multicorn_hive FOREIGN DATA WRAPPER multicorn
         OPTIONS (
             wrapper 'hivefdw.HiveForeignDataWrapper'
         );
+
+5. User can executes simple selects on a remote Hive table:
 
         CREATE FOREIGN TABLE hive (
             a varchar,
@@ -49,7 +50,9 @@ Installation
         );
 
         SELECT * FROM hive;
-        
+
+6. Also user can execute selects using a Hive query:
+         
         CREATE FOREIGN TABLE hive_query (
             x varchar,
             y varchar,
@@ -57,7 +60,7 @@ Installation
         ) SERVER multicorn_hive OPTIONS (
             host 'tb081',
             port '10000',
-            query 'SELECT a,b,c,d from src'
+            query 'SELECT x,y,z from src'
         );
         
         SELECT * from hive_query;
