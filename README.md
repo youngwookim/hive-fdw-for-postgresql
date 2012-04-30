@@ -31,6 +31,7 @@ Installation
 
 
         CREATE EXTENSION multicorn;
+        
         CREATE SERVER multicorn_hive FOREIGN DATA WRAPPER multicorn
         OPTIONS (
             wrapper 'hivefdw.HiveForeignDataWrapper'
