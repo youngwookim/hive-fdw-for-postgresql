@@ -48,3 +48,15 @@ Installation
         );
 
         SELECT * FROM hive;
+        
+        CREATE FOREIGN TABLE hive_query (
+            x varchar,
+            y varchar,
+            z varchar
+        ) SERVER multicorn_hive OPTIONS (
+            host 'tb081',
+            port '10000',
+            query 'SELECT a,b,c,d from src'
+        );
+        
+        SELECT * from hive_query;
