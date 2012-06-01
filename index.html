@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Hive FDW for PostgreSQL by youngwookim</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Hive FDW for PostgreSQL</h1>
+        <h2>Hive FDW for PostgreSQL</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/youngwookim/hive-fdw-for-postgresql/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/youngwookim/hive-fdw-for-postgresql/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/youngwookim/hive-fdw-for-postgresql" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>Hive FDW for PostgreSQL</h1>
+
+<p>This Python module implements the <code>multicorn.ForeignDataWrapper</code> interface to allow you to create foreign tables in PostgreSQL 9.1+ that query to tables in Apache Hive. </p>
+
+<h2>Pre-requisites</h2>
+
+<ul>
+<li><a href="http://www.postgresql.org/">PostgreSQL 9.1+</a></li>
+<li><a href="http://python.org/">Python</a></li>
+<li><a href="http://multicorn.org">Multicorn</a></li>
+<li><a href="https://github.com/lovelysystems/ls-thrift-py-hadoop">ls-thrift-py-hadoop</a></li>
+</ul><h2>Installation</h2>
+
+<ol>
+<li><a href="http://multicorn.org/#installation">Install Multicorn</a></li>
+<li><a href="https://github.com/lovelysystems/ls-thrift-py-hadoop">Install ls-thrift-py-hadoop</a></li>
+<li>
+<p>Build the FDW module:</p>
+
+<pre><code>$ cd hive-fdw-for-postgresql
+$ python setup.py sdist
+$ sudo python setup.py install
+</code></pre>
+
+<p>or, with easy_install:</p>
+
+<pre><code>$ cd hive-fdw-for-postgresql
+$ sudo easy_install .
+</code></pre>
+</li>
+<li>
+<p>In the PostgreSQL client, create an extension and foreign server:</p>
+
+<pre><code>CREATE EXTENSION multicorn;
+
+CREATE SERVER multicorn_hive FOREIGN DATA WRAPPER multicorn
+OPTIONS (
+    wrapper 'hivefdw.HiveForeignDataWrapper'
+);
+</code></pre>
+</li>
+<li>
+<p>User can executes simple selects on a remote Hive table:</p>
+
+<pre><code>CREATE FOREIGN TABLE hive (
+    a varchar,
+    b varchar,
+    c varchar,
+    d varchar
+) SERVER multicorn_hive OPTIONS (
+    host 'tb081',
+    port '10000',
+    table 'test'
+);
+
+SELECT * FROM hive;
+</code></pre>
+</li>
+<li>
+<p>Also user can executes selects using a Hive query:</p>
+
+<pre><code>CREATE FOREIGN TABLE hive_query (
+    x varchar,
+    y varchar,
+    z varchar
+) SERVER multicorn_hive OPTIONS (
+    host 'tb081',
+    port '10000',
+    query 'SELECT x,y,z from src'
+);
+
+SELECT * from hive_query;
+</code></pre>
+</li>
+</ol>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
