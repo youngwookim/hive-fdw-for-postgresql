@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Hive FDW for PostgreSQL : Hive FDW for PostgreSQL" />
 
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Hive FDW for PostgreSQL by youngwookim</title>
+    <title>Hive FDW for PostgreSQL</title>
   </head>
 
   <body>
 
-    <header>
-      <div class="container">
-        <h1>Hive FDW for PostgreSQL</h1>
-        <h2>Hive FDW for PostgreSQL</h2>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/youngwookim/hive-fdw-for-postgresql">View on GitHub</a>
 
-        <section id="downloads">
-          <a href="https://github.com/youngwookim/hive-fdw-for-postgresql/zipball/master" class="btn">Download as .zip</a>
-          <a href="https://github.com/youngwookim/hive-fdw-for-postgresql/tarball/master" class="btn">Download as .tar.gz</a>
-          <a href="https://github.com/youngwookim/hive-fdw-for-postgresql" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-        </section>
-      </div>
-    </header>
+          <h1 id="project_title">Hive FDW for PostgreSQL</h1>
+          <h2 id="project_tagline">Hive FDW for PostgreSQL</h2>
 
-    <div class="container">
-      <section id="main_content">
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/youngwookim/hive-fdw-for-postgresql/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/youngwookim/hive-fdw-for-postgresql/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h1>Hive FDW for PostgreSQL</h1>
 
 <p>This Python module implements the <code>multicorn.ForeignDataWrapper</code> interface to allow you to create foreign tables in PostgreSQL 9.1+ that query to tables in Apache Hive. </p>
@@ -38,12 +41,12 @@
 <li><a href="http://www.postgresql.org/">PostgreSQL 9.1+</a></li>
 <li><a href="http://python.org/">Python</a></li>
 <li><a href="http://multicorn.org">Multicorn</a></li>
-<li><a href="https://github.com/lovelysystems/ls-thrift-py-hadoop">ls-thrift-py-hadoop</a></li>
+<li><a href="https://github.com/youngwookim/hive-thrift-py">hive-thrift-py</a></li>
 </ul><h2>Installation</h2>
 
 <ol>
 <li><a href="http://multicorn.org/#installation">Install Multicorn</a></li>
-<li><a href="https://github.com/lovelysystems/ls-thrift-py-hadoop">Install ls-thrift-py-hadoop</a></li>
+<li><a href="https://github.com/youngwookim/hive-thrift-py">Install hive-thrift-py</a></li>
 <li>
 <p>Build the FDW module:</p>
 
@@ -69,6 +72,9 @@ OPTIONS (
 );
 </code></pre>
 </li>
+</ol><h2>Examples</h2>
+
+<ol>
 <li>
 <p>User can executes simple selects on a remote Hive table:</p>
 
@@ -106,6 +112,15 @@ SELECT * from hive_query;
       </section>
     </div>
 
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Hive FDW for PostgreSQL maintained by <a href="https://github.com/youngwookim">youngwookim</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
     
+
   </body>
 </html>
