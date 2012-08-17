@@ -9,13 +9,13 @@ Pre-requisites
 * [PostgreSQL 9.1+](http://www.postgresql.org/)
 * [Python](http://python.org/)
 * [Multicorn](http://multicorn.org)
-* [ls-thrift-py-hadoop] (https://github.com/lovelysystems/ls-thrift-py-hadoop)
+* [hive-thrift-py](https://github.com/youngwookim/hive-thrift-py)
 
 Installation
 ------------
 
 1. [Install Multicorn](http://multicorn.org/#installation)
-2. [Install ls-thrift-py-hadoop](https://github.com/lovelysystems/ls-thrift-py-hadoop)
+2. [Install hive-thrift-py](https://github.com/youngwookim/hive-thrift-py)
 3. Build the FDW module:
 
         $ cd hive-fdw-for-postgresql
@@ -36,7 +36,10 @@ Installation
             wrapper 'hivefdw.HiveForeignDataWrapper'
         );
 
-5. User can executes simple selects on a remote Hive table:
+Examples
+------------
+
+1. User can executes simple selects on a remote Hive table:
 
         CREATE FOREIGN TABLE hive (
             a varchar,
@@ -51,7 +54,7 @@ Installation
 
         SELECT * FROM hive;
 
-6. Also user can executes selects using a Hive query:
+2. Also user can executes selects using a Hive query:
          
         CREATE FOREIGN TABLE hive_query (
             x varchar,
