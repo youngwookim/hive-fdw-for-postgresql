@@ -36,7 +36,7 @@ class HiveForeignDataWrapper(ForeignDataWrapper):
         else:
             statement = "SELECT " + ",".join(self.columns.keys()) + " FROM " + self.table
         
-        log_to_postgres('HIve query: ' + unicode(statement), DEBUG)
+        log_to_postgres('Hive query: ' + unicode(statement), DEBUG)
         
         try:
             transport = TSocket.TSocket(self.host, self.port)
@@ -55,9 +55,9 @@ class HiveForeignDataWrapper(ForeignDataWrapper):
                     line[column_name] = cols[idx]
                     idx = idx + 1
                 yield line
-            
-            transport.close()    
+                
         except Thrift.TException, tx:
-            #print '%s' % (tx.message)
             log_to_postgres(tx.message, ERROR)
+        finally:
+            transport.close()
     
